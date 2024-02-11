@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.log4j.Log4j2;
 
 /**
  * @author navneetprabhakar
  * Sample Drools Rule controller
  */
 @RestController
+@Log4j2
 @RequestMapping("v1/rules/")
 public class DroolsController {
 
@@ -28,6 +30,8 @@ public class DroolsController {
      */
     @PostMapping("calculateResult")
     public DroolsResponse calculateResult(@RequestBody DroolsRequest request) {
+        System.out.println( "Here1" );
+        log.info("initiating calculate result");
         return droolsService.calcaulateResult(request);
     }
 
